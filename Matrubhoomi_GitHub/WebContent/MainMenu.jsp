@@ -23,14 +23,41 @@ a { text-decoration:none}
         margin-left: 230px;
 }
 </style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="Js/collapsible-menu.js"></script>
+<style>
+  .accordion-toggle {cursor: pointer; padding-left: 20px;    background: #d14836 none no-repeat 3px 50%;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    padding: 2px 2px 2px 17px;
+    width:168px;
+    }
+  .accordion-content {display: none; background: #fff;}
+  .accordion-content.default {display: none;}
+  
+  #menu{
+      background: #fff;
+    border-top: 2px solid #fff;
+    color: #d14836;
+    display: block;
+    padding: 2px 2px 2px 10px;
+    cursor: pointer;
+  }
+    </style>
+<!--<script src="Js/jquery.min_1.js"></script>-->
+<script src="js_1/jquery.min.js"></script>
+<!--<script src="Js/collapsible-menu.js"></script>-->
 
 <script type="text/javascript">
+$(document).ready(function($) {
+    $('#accordion').find('.accordion-toggle').click(function(){
+      //Expand or collapse this panel
+      $(this).next().slideToggle('medium');
+      //Hide the other panels
+      $(".accordion-content").not($(this).next()).slideUp('medium');
 
-$( document ).ready(function() {
-	//loadpage('test1.jsp');
-});
+    });
+  });
 function loadpage(url){
 	//alert("hi");
 	try{
@@ -82,7 +109,69 @@ Welcome <%=fname + " " + mname + " " + lname%>
 <br/>
 <br/>
 <div id="nav" style="font-family: arial,sans-serif;">
-<ul class="collapsible-menu" data-collapsible-menu="slide">
+<div id="accordion">
+
+  <div class="accordion-toggle">
+<!--  <div style="background-image: url('images/expand.gif');background-color:white;width: 10px;-->
+<!--    height: 10px;">-->
+<!--    </div>-->Masters
+    </div>
+  <div class="accordion-content default">
+  <ul>
+    				<li style="list-style: none;"><a style="" id="menu" onclick="">State Master</a></li>
+   					 <li style="list-style: none;"><a id="menu" onclick="loadpage('BranchMasterData.jsp');">Branch Master</a></li>
+                    <li style="list-style: none;"><a id="menu" onclick="">Agent Master</a></li>
+                   <li style="list-style: none;"> <a id="menu"  onclick="">User Master</a></li>
+                    <li style="list-style: none;"><a id="menu"  onclick="">Relationship Master</a></li>
+                   <li style="list-style: none;"> <a id="menu" onclick="">Plan Master</a></li>
+                   <li style="list-style: none;"> <a id="menu" onclick="">Account Master</a></li>
+                   <li style="list-style: none;"> <a  id="menu" onclick="">Change Password</a></li>
+                   
+                    </ul>                    
+                    
+  </div>
+  <h4 class="accordion-toggle">Transactions</h4>
+  <div class="accordion-content">
+    <ul>                    
+                </ul>
+  </div>
+  <h4 class="accordion-toggle">Advances</h4>
+  <div class="accordion-content">
+<ul>
+                    
+                </ul>
+                
+  </div>
+  <h4 class="accordion-toggle">Inflation</h4>
+  <div class="accordion-content">
+<ul>
+                    
+                </ul>
+                
+  </div>
+  <h4 class="accordion-toggle">Reports</h4>
+  <div class="accordion-content">
+<ul>
+                    
+                </ul>
+                
+  </div>
+  <h4 class="accordion-toggle">Management Reports</h4>
+  <div class="accordion-content">
+<ul >
+                    
+                </ul>               
+  </div>
+  <h4 class="accordion-toggle">Utilities</h4>
+  <div class="accordion-content">
+<ul>
+                    
+                </ul>               
+  </div>
+  <div><a class="accordion-toggle" href="logout.jsp">Sign Out</a></div>
+</div>
+
+<!--<ul class="collapsible-menu" data-collapsible-menu="slide">
             <li>
                 <a class="collapsed" >Masters</a>
                 <ul style="padding-top: 10px;padding-bottom: 10px;">
@@ -144,7 +233,7 @@ Welcome <%=fname + " " + mname + " " + lname%>
             </li>
         </ul>
                         <a class="signout" href="logout.jsp">Sign Out</a>
-        </div>
+        --></div>
         
 <div id="Pageload"></div>
 
