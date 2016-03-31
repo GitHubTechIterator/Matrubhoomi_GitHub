@@ -239,9 +239,6 @@ Welcome <%=fname + " " + mname + " " + lname%>
 
 
 <div><jsp:directive.include file="footer.jsp" /></div>
-
-
-
 </div>
 </div>	
 </div>
